@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Benjamin Brotman</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/styles/styles.css">
+
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="/resources/images/Name%20logo.png" alt="logo" class="logo">
+    </a>
+    <nav>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="resume.html">Resume</a></li>
+            <li class="nav-item"><a class="nav-link active" href="mymajor.html">My Major</a></li>
+            <li class="nav-item"><a class="nav-link active" href="clubs.html">Clubs</a></li>
+            <li class="nav-item"><a class="nav-link active" href="../Personal-Project-redo/album.html">Album</a></li>
+            <li class="nav-item"><a class="nav-link active" href="weblinks.html">Links</a></li>
+
+        </ul>
+    </nav>
+</header>
+<br>
+
+<div class="content">
+    <div class="sidebar">
+        <br>
+        <h2>Contact me</h2>
+        <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{{YOUR FORM ID HERE}}" method="post">
+            <fieldset id="fs-frm-inputs">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" class="form-control" name="name" id="full-name" placeholder="First and Last" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" class="form-control" name="_replyto" id="email-address" placeholder="sample@email.com" required="">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" rows="5" name="message" id="message" placeholder="Your Message" required=""></textarea>
+                </div>
+                <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <hr>
+
+        <div id="apiDisplay"></div>
+
+        <script>
+            const div = document.getElementById('apiDisplay');
+            const url = 'https://stoic.tekloon.net/stoic-quote';
+
+            const headers = new Headers({
+                'Accept': 'application/json'
+            });
+
+            fetch(url, {headers})
+                .then((response)  => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                    let p = document.createElement('p');
+                    p.innerHTML = `${data.quote}`;
+                    div.appendChild(p);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+        </script>
+
+
+    </div>
+
+    <div class="displayContent">
+        <h1>Extracurricular</h1>
+        <br>
+        <h2>Private Pilots License</h2>
+        <h3>AOPA member, EAA member</h3>
+        <h5>June 2021 - Present. Studied vigorously to pass piloting exams. Dedicated to staying current on flight rules and information. </h5>
+        <br>
+        <h2>Brothers Bar and Grill, State College, PA</h2>
+        <h3>Floor Staff</h3>
+        <h5>February 2024 - Present. Greeted and welcomed patrons, and kept the restaurant safe and organized. </h5>
+        <br>
+        <h2>Central PA MMA, State College, PA</h2>
+        <h3>Brazilian Jiu-Jitsu</h3>
+        <h5>January 2024 - Present</h5>
+    </div>
+</div>
+<footer>
+    <a href="www.linkedin.com/in/benjamin-brotman-7b826a253">LinkedIn</a>
+    <a href="https://github.com/benbrot1"> GitHub</a>
+    <p>Benjamin Brotman <br> 118 University Drive Apt 11, State College, PA 16801 <br> (571)-235-1685 <br>bsb5442@psu.edu </p>
+    <p>&copy; Copyright 2024</p>
+</footer>
+
+</body>
+</html>
